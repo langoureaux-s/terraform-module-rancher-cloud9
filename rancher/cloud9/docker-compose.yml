@@ -26,7 +26,7 @@ services:
     environment:
       - NO_PROXY=localhost, 127.0.0.1, .hm.dm.ad
       - HTTP_PROXY=${proxy}
-      - HTTPS_PROXY: ${proxy}
+      - HTTPS_PROXY=${proxy}
     entrypoint:
     - /bin/sh
     - -c

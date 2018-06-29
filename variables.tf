@@ -10,7 +10,7 @@ variable "username" {
     description = "The username to connect on cloud9"
 }
 
-variable "username" {
+variable "password" {
     description = "The password to connect on cloud9"
 }
 

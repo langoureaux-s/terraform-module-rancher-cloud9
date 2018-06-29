@@ -8,7 +8,7 @@ provider "vault" {}
 
 # Get the project data
 data "rancher_environment" "project" {
-  name = "${var.project_name}
+  name = "${var.project_name}"
 }
 
 # Get vault secret

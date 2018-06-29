@@ -37,6 +37,6 @@ services:
     - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates:ro
     tty: true
     command:
-    - update-ca-certificates && dockerd-entrypoint.sh --storage-driver=overlay
+    - update-ca-certificates && dockerd-entrypoint.sh --storage-driver=overlay2
     labels:
       io.rancher.container.pull_image: always

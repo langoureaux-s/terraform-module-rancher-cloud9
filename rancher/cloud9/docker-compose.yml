@@ -1,7 +1,6 @@
 version: '2'
 volumes:
   cloud9-workspace:
-    external: true
     driver: rancher-nfs
 services:
   cloud9:

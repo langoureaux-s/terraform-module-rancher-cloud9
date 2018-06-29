@@ -1,0 +1,42 @@
+version: '2'
+volumes:
+  cloud9-workspace:
+    external: true
+    driver: rancher-nfs
+services:
+  cloud9:
+    image: webcenter/cloud9-workspace:latest
+    environment:
+      - DOCKER_HOST=docker:2375
+      - http_proxy=${proxy}
+      - https_proxy=${proxy}
+      - no_proxy=localhost, 127.0.0.1, docker, rancher-metadata, .hm.dm.ad
+    stdin_open: true
+    volumes:
+    - cloud9-workspace:/workspace
+    - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates:ro
+    tty: true
+    command: --listen 0.0.0.0 --port 8080 -w /workspace --collab --auth "${username}:${password}"
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.sidekicks: docker
+  docker:
+    privileged: true
+    image: index.docker.io/docker:17-dind
+    environment:
+      - NO_PROXY=localhost, 127.0.0.1, .hm.dm.ad
+      - HTTP_PROXY=${proxy}
+      - HTTPS_PROXY: ${proxy}
+    entrypoint:
+    - /bin/sh
+    - -c
+    stdin_open: true
+    network_mode: bridge
+    volumes:
+    - cloud9-workspace:/workspace
+    - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates:ro
+    tty: true
+    command:
+    - update-ca-certificates && dockerd-entrypoint.sh --storage-driver=overlay
+    labels:
+      io.rancher.container.pull_image: always

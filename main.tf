@@ -3,9 +3,6 @@ terraform {
   backend "azurerm" {}
 }
 
-provider "rancher" {}
-provider "vault" {}
-
 # Get the project data
 data "rancher_environment" "project" {
   name = "${var.project_name}"

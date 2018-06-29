@@ -2,10 +2,6 @@
 
 This module permit to deploy cloud9 stack with docker support on Rancher.
 
-You need to set the following keys on vault path:
-- **password**: the password to access on cloud9
-- **proxy** the proxy chain to output on Internet: http://username:password@proxy:8080
-
 ```
 terragrunt = {
   terraform {
@@ -14,6 +10,8 @@ terragrunt = {
   
   vault_path    = "secret/prd/cloud9/toto"
   username      = "toto"
+  password      = "mypassword"
+  proxy         = "http://user:password@proxy:8080"
   project_name  = "Default"
   stack_name    = "toto"
 }

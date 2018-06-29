@@ -1,7 +1,3 @@
-variable "vault_path" {
-    description = "The vault path to get secret about this deployement. You need to set the key password"
-}
-
 variable "project_name" {
     description = "The project name (environment name)"
 }
@@ -12,6 +8,14 @@ variable "stack_name" {
 
 variable "username" {
     description = "The username to connect on cloud9"
+}
+
+variable "username" {
+    description = "The password to connect on cloud9"
+}
+
+variable "proxy" {
+    description = "The proxy to outbound on Internet"
 }
 
 

@@ -8,18 +8,14 @@ data "rancher_environment" "project" {
   name = "${var.project_name}"
 }
 
-# Get vault secret
-data "vault_generic_secret" "vault" {
-  path = "${var.vault_path}"
-}
-
 # Deploy cloud9 stack
 data "template_file" "docker_compose" {
   template = "${file("${path.module}/rancher/cloud9/docker-compose.yml")}"
 
   vars {
     username              = "${var.username}"
-    password              = "${data.vault_generic_secret.vault.data["password"]}"
+    password              = "${var.password}"
+    proxy                 = "${var.proxy}"
   }
 }
 resource "rancher_stack" "cloud9" {

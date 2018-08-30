@@ -19,7 +19,7 @@ data "template_file" "docker_compose" {
   }
 }
 resource "rancher_stack" "cloud9" {
-  name            = "cloud9-${var.stack_name}"
+  name            = "${var.stack_name}"
   description     = "Cloud9"
   environment_id  = "${data.rancher_environment.project.id}"
   scope           = "user"

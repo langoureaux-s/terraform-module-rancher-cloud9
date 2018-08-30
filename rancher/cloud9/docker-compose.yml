@@ -16,7 +16,7 @@ services:
     - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates:ro
     tty: true
     command: 
-    - --listen 0.0.0.0 --port 8080 -w /workspace --collab true --setting-path workspace/.c9 --auth "${username}:${password}"
+    - --listen 0.0.0.0 --port 8080 -w /workspace --collab true --setting-path /workspace/.c9 --auth "${username}:${password}"
     labels:
       io.rancher.container.pull_image: always
       io.rancher.sidekicks: docker

@@ -18,12 +18,5 @@ terragrunt = {
 
 You can use the following optionnal parameters:
  - proxy: the proxy chain, for exemple http://user:password@proxy:8080
- - arm_subscription_id: the Azure subscription ID
- - arm_client_id: the Azure client ID
- - arm_client_secret: the Azure client secret
- - arm_tenant_id: the azure tenant ID
- - arm_access_key: The azure access key for blob storage
- - rancher_access_key: the Rancher access key
- - rancher_secret_key: The ranger secret key
- - consul_http_token: The Consul token
- - 
+
+If you need more environment variable for cloud9, you need to edit the file `/workspace/.cloud9/.bashrc`

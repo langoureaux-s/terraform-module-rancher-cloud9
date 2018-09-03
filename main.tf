@@ -16,14 +16,6 @@ data "template_file" "docker_compose" {
     username              = "${var.username}"
     password              = "${var.password}"
     proxy                 = "${var.proxy}"
-    arm_subscription_id   = "${var.arm_subscription_id}"
-    arm_client_id         = "${var.arm_client_id}"
-    arm_client_secret     = "${var.arm_client_secret}"
-    arm_tenant_id         = "${var.arm_tenant_id}"
-    arm_access_key        = "${var.arm_access_key}"
-    rancher_access_key    = "${var.rancher_access_key}"
-    rancher_secret_key    = "${var.rancher_secret_key}"
-    consul_http_token     = "${var.consul_http_token}"
   }
 }
 resource "rancher_stack" "cloud9" {

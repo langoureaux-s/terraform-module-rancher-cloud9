@@ -11,8 +11,19 @@ terragrunt = {
   vault_path    = "secret/prd/cloud9/toto"
   username      = "toto"
   password      = "mypassword"
-  proxy         = "http://user:password@proxy:8080"
   project_name  = "Default"
   stack_name    = "toto"
 }
 ```
+
+You can use the following optionnal parameters:
+ - proxy: the proxy chain, for exemple http://user:password@proxy:8080
+ - arm_subscription_id: the Azure subscription ID
+ - arm_client_id: the Azure client ID
+ - arm_client_secret: the Azure client secret
+ - arm_tenant_id: the azure tenant ID
+ - arm_access_key: The azure access key for blob storage
+ - rancher_access_key: the Rancher access key
+ - rancher_secret_key: The ranger secret key
+ - consul_http_token: The Consul token
+ - 

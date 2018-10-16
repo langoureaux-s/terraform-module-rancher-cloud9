@@ -6,7 +6,7 @@ services:
   cloud9:
     image: webcenter/cloud9-workspace:latest
     environment:
-      - DOCKER_HOST=127.0.0.1:2375
+      - DOCKER_HOST=docker:2375
       - http_proxy=${proxy}
       - https_proxy=${proxy}
       - no_proxy=localhost, 127.0.0.1, docker, rancher-metadata, .hm.dm.ad
@@ -31,7 +31,7 @@ services:
     - /bin/sh
     - -c
     stdin_open: true
-    network_mode: container:cloud9
+    network_mode: bridge
     volumes:
     - cloud9-workspace:/workspace
     - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates:ro
